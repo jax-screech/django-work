@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title%} Filters {% endblock title %}
+{% block content %}
+<h2>{{ my_string  | upper }}</h2>
+<h2>Date</h2>
+<p>Date: {{ my_date | date:"F j, Y"}}</p>
+<h2>Truncate</h2>
+<p>Truncated:{{ long_string |truncatechars:24}}</p>
+
+{% comment %} length {% endcomment %}
+<h2>Length</h2>
+<p>Length of my_string: {{ new_str|length }}</p>
+
+{% comment %} default {% endcomment %}
+<h2>Default</h2>
+<p>Default value: {{ new_str|default:"No value provided" }}</p>
+
+{% comment %} Capfirst filter {% endcomment %}
+<h2>Capfirst</h2>
+<p>Capfirst: {{ random_str|capfirst }}</p>
+
+{% comment %} join {% endcomment %}
+<h2>Join</h2>
+<p>Joined list: {{ people_str|join:", " }}</p>
+
+{% comment %} slice {% endcomment %}
+<h2>Slice</h2>
+<h2>First 2 People:</h2>
+<p>{{ people_str|slice:":2" }}</p>
+
+{% comment %} wordcount {% endcomment %}
+<h2>Wordcount</h2>
+{{ people_str|join:" "|wordcount }}
+
+{% comment %} Line break filter {% endcomment %}
+<h2>Linebreak Filter</h2>
+<p>{{ people_str2|linebreaks }}</p>
+{% endblock content%}
